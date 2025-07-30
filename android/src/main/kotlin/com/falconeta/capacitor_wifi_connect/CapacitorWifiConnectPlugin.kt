@@ -120,7 +120,7 @@ class CapacitorWifiConnectPlugin : Plugin() {
       return;
     }
     val ret = JSObject()
-    ret.put("value", implementation.getAppSSID())
+    ret.put("value", implementation.getAppSSID().removeSurrounding("\""))
     ret.put("status", 0)
     call.resolve(ret)
   }
@@ -132,7 +132,7 @@ class CapacitorWifiConnectPlugin : Plugin() {
       return;
     }
     val ret = JSObject()
-    ret.put("value", implementation.getDeviceSSID())
+    ret.put("value", implementation.getDeviceSSID().removeSurrounding("\""))
     ret.put("status", 0)
     call.resolve(ret)
   }
